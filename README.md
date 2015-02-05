@@ -34,7 +34,7 @@ else
    {
 	//PTs generally expose themselve as local SOCKS proxies
 	int socksPort = pt.getLocalSocksPort();
-	myNetMgr.setProxy(Type.SOCKS,socksPort);
+	myApp.setProxy(Type.SOCKS,socksPort);
    }
 }
 
