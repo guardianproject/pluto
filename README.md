@@ -11,30 +11,35 @@ The approach of this project is to provide a small bit of shim code that any app
 
 ## Sample
 
-//performs query of local app assets and installed APKs with proper "PLUTO" category tag
-List<PluggableTransport> pTrans = PlutoFactory.getAvailableTransports();
+	//performs query of local app assets and installed APKs with proper "PLUTO" category tag
+	List<PluggableTransport> pTrans = PlutoFactory.getAvailableTransports();
 
-PluggableTransport pt = pTrans.get(0);
+	PluggableTransport pt = pTrans.get(0);
 
-if (!pt.isInstalled())
-{
-	pt.requestInstall();
-}
-else
-{
-   if (pt.getName().equals("meek"))
-   {
-	String configString = "url=https://meek-reflect.appspot.com/ front=www.google.com";
-	pt.setConfig(configString);
-   }
+	if (!pt.isInstalled())
+	{
+		pt.requestInstall();
+	}
+	else
+	{
+   		if (pt.getName().equals("meek"))
+   		{
+			String configString = "url=https://meek-reflect.appspot.com/ front=www.google.com";
+			pt.setConfig(configString);
+   		}
+		else if (pt.getName().equals("obfs4"))
+		{
+			String configString = "obfs3 191.21.10.141:10223 c6eda10edca8970b8a57617bf3b6e82bbecd287d"; 
+			pt.setConfig(configString);
+		}	
 
-   boolean connected = pt.connect();
+   		boolean connected = pt.connect();
 
-   if (connected)
-   {
-	//PTs generally expose themselve as local SOCKS proxies
-	int socksPort = pt.getLocalSocksPort();
-	myApp.setProxy(Type.SOCKS,socksPort);
-   }
-}
+   		if (connected)
+   		{
+			//PTs generally expose themselve as local SOCKS proxies
+			int socksPort = pt.getLocalSocksPort();
+			myApp.setProxy(Type.SOCKS,socksPort);
+   		}
+	}
 
