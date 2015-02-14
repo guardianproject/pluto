@@ -1,12 +1,17 @@
+#!/bin/sh
 
-export GO_CROSSCOMPILE_PATH=~/gopkg/golang-crosscompile
-export BUILD_OUTPUT=/tmp/build
+export NDK_TOOLCHAIN=~/dev/android/ndk
+export CC=$NDK_TOOLCHAIN/bin/arm-linux-androideabi-gcc
+export THISPATH=`pwd`
+export GOROOT=$THISPATH/go-android/go
+export GOPATH=$THISPATH
+export GOOS=android
+export GOARCH=arm
+export GOARM=7
+export CGO_ENABLED=1
 
-export GOPATH=$BUILD_OUTPUT
-source $GO_CROSSCOMPILE_PATH/crosscompile.bash
+GO="$GOROOT/bin/go"
 
-GOARM=5 go-linux-arm get git.torproject.org/pluggable-transports/meek.git/meek-client
-cp $BUILD_OUTPUT/bin/linux_arm/meek* plugins/meek/assets 
+$GO get git.torproject.org/pluggable-transports/meek.git/meek-client
 
-GOARM=5 go-linux-arm get git.torproject.org/pluggable-transports/obfs4.git/obfs4proxy
-cp $BUILD_OUTPUT/bin/linux_arm/obfs* plugins/obfs4/assets 
+$GO get git.torproject.org/pluggable-transports/obfs4.git/obfs4proxy
