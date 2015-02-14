@@ -1,16 +1,14 @@
-/** Pre-Requisites **/
+# Pre-Requisites
 
-Setup cross-compilation for go-linux-arm using these instructions:
-http://dave.cheney.net/2013/07/09/an-introduction-to-cross-compilation-with-go-1-1
+- Go Programming Language 1.4.1: http://golang.org/dl/
+- Android NDK: https://developer.android.com/tools/sdk/ndk/index.html 
 
-/** How to Build OBFS4 for Android **/
+# How to Build Pluggable Transports for Android **/
 
-Build obfs4 for Android
+1. setup the go-android environment: see go-android/readme.md document
+2. run > build.sh script in this folder 
 
-GOARM=5 go-linux-arm get git.torproject.org/pluggable-transports/obfs4.git/obfs4proxy
+# How to Deply PT's
 
-/** How to build Meek for Android **/
-
-Build meek-client:
-
-GOARM=5 go-linux-arm get git.torproject.org/pluggable-transports/meek.git/meek-client
+1. copy binaries from bin/android-arm to desired project
+2. Execute binaries form within Android app Runtime.getRuntime().exec() shell
