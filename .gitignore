@@ -15,3 +15,7 @@ builds
 /res/raw/*mp3
 obj
 releases
+/src/*
+/pkg/*
+/bin/*
+/go-android/go/*
