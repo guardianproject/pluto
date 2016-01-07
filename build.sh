@@ -1,8 +1,8 @@
 #!/bin/sh
 
-#export NDK_TOOLCHAIN=/please/define/this/to/your/ndk
+#export ANDROID_NDK_HOME=/please/define/this/to/your/ndk
 
-export CC=$NDK_TOOLCHAIN/bin/arm-linux-androideabi-gcc
+export CC=$ANDROID_NDK_HOME/bin/arm-linux-androideabi-gcc
 export THISPATH=`pwd`
 export GOROOT=$THISPATH/go-android/go
 export GOPATH=$THISPATH

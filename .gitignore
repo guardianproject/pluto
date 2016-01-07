@@ -6,7 +6,7 @@
 /external/test.c
 /external/test.h.gch
 /external/translation/
-bin
+##bin
 gen
 native
 local.properties
@@ -17,5 +17,5 @@ obj
 releases
 /src/*
 /pkg/*
-/bin/*
+##/bin/*
 /go-android/go/*
